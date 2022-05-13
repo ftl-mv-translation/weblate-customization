@@ -1,0 +1,14 @@
+*.pyproj
+*.pyc
+.idea/*
+*.sublime-*
+.vscode/*
+/build/
+/dist/
+/.vs
+/.venv
+/.venv*
+/venv
+
+# Default Example folder
+customize/*
