@@ -6,7 +6,7 @@ from weblate.checks.base import TargetCheck
 
 
 # Scientifc numbers support because we never know
-MATCH_NUMBERS_RE = r"[-+]?[.]?[\d]+(?:,\d\d\d)*[\.]?\d*(?:[eE][-+]?\d+)?"
+MATCH_NUMBERS_RE = r"[.]?[\d]+(?:,\d\d\d)*[\.]?\d*(?:[eE][-+]?\d+)?"
 
 
 class NumbersNotChanged(TargetCheck):
@@ -40,7 +40,8 @@ class NumbersNotChanged(TargetCheck):
         t_numbers_cast = [float(x) for x in t_numbers]
 
         # Avoiding rounding errors
-        return not all(
-            [math.isclose(i, j) for i, j in zip(
-                set(s_numbers_cast), set(t_numbers_cast))]
-        )
+        return not all([
+            math.isclose(i, j) for i, j in zip(
+                set(s_numbers_cast), set(t_numbers_cast)
+            )
+        ])
